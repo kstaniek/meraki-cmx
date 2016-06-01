@@ -184,7 +184,11 @@ if __name__ == '__main__':
         time.sleep(60)
 
     done_event = threading.Event()
-    httpd = SocketServer.TCPServer(("", cf.port), Handler)
+    try:
+        httpd = SocketServer.TCPServer(("", cf.port), Handler)
+    except Exception as e:
+        logging.error("Fatal error: {}".format(str(e)))
+        raise
 
     signal.signal(signal.SIGTERM, terminate)
     signal.signal(signal.SIGINT, terminate)
