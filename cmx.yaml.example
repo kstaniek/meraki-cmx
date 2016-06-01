@@ -1,0 +1,29 @@
+cmx:
+# This parameters needs to be set in Meraki dashboard. For documentation refer to:
+# https://documentation.meraki.com/MR/Monitoring_and_Reporting/CMX_Analytics
+# Example posturl:
+# http://<publicip>:<port>/<path>
+
+  posturl: "http://<publicip>:<port>/<path>"
+  validator: "<validator string>"
+  secret: "<secret string>"
+
+
+influxdb:
+# InfluxDB connection url:
+# influxdb://<host>:<port>/<database>
+
+  url: "influxdb://<host>:<port>/<database>"
+
+# loglevel: DEBUG, INFO, WARN, ERROR, CRITICAL
+loglevel: INFO
+
+
+# known device list
+devices:
+  - mac: "<mac address1>"
+    name: "<name>"  # i.e iPhone 5
+    owner: "<owner"  # i.e. Jon
+  - mac: "<mac address2>"
+    name: "<name>"  # i.e iPhone 6s
+    owner: "<owner"  # i.e. Susan
